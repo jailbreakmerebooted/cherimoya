@@ -1,0 +1,5 @@
+string=$(ps aux | grep $1 | grep -v grep)
+list=(${string})
+for pid in ${!list[@]}; do
+   ((pid == 1)) && printf "${list[$pid]}"
+done
